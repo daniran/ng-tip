@@ -1,0 +1,25 @@
+{
+  "name": "ng-tooltip",
+  "version": "0.1.0",
+  "authors": [
+    "Danny Rankevich <danny.ran@gmail.com>"
+  ],
+  "description": "a simple replacement for AngularUI tooltip",
+  "license": "MIT",
+  "main": [
+    "dist/ng-tooltip-0.1.0.min.js"
+  ],
+  "authors": [
+    "Danny Rankevich <danny.ran@gmail.com>"
+  ],
+  "dependencies": {
+    "angular": "^1.4.3"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

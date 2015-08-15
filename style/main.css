@@ -1,0 +1,12 @@
+
+.ng-tooltip-element {
+    position: absolute;
+}
+
+.ng-tooltip-content {
+    height: 100%;
+    overflow: auto;
+    border: 2px solid black;
+    background-color: white;
+    border-radius: 5px;
+}
