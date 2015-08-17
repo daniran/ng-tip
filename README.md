@@ -22,6 +22,8 @@ The main.css file contains a basic tooltip desing (see example page)
 
 ### Config Object
 
+This is the configuration of the tooltip
+
 ```javascript
 {
     width: 150,  // tooltip width
@@ -37,6 +39,7 @@ The main.css file contains a basic tooltip desing (see example page)
 
 ### $tooltipInstance
 
+The $tooltipInstance is injected to the controller you use for the tooltip
 ```javascript
 $tooltipInstance : {
     config: {},  // the tooltip config object
