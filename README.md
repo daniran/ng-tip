@@ -1,2 +1,8 @@
-# ng-tooltip
-A simple replacement for AngluarUI tooltip
+# ng- tip
+An easy and fast Angular tooltip directive
+
+To use it:
+
+bower install --save ng-tip
+
+
