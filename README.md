@@ -9,6 +9,7 @@ The main.css file contains a basic tooltip desing (see example page)
 
 ### To build:
 
+`npm install`
 `grunt build`
 
 ## Usage:
@@ -23,13 +24,13 @@ The main.css file contains a basic tooltip desing (see example page)
 
 ```javascript
 {
-    width: int,  // tooltip width
-    height: int,  // tooltip height
+    width: 150,  // tooltip width
+    height: 250,  // tooltip height
     templateUrl: 'template.html',
     controller: 'myTooltipCtrl',   // with $tooltipInstance injected
     placement: 'top|bottom|left|right,
-    appendToBody: bool, // append to body?
-    isolateScope: bool,  // inject isolate scope to controller, or the parent scope?
+    appendToBody: false, // append to body?
+    isolateScope: true,  // inject isolate scope to controller, or the parent scope?
     data: {} // optional data object for the tooltip
 }
 ```
