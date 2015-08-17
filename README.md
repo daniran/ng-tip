@@ -1,5 +1,5 @@
 # ng- tip
-An easy and fast Angular tooltip directive
+An simple yet functional Angular tooltip directive
 
 ### To install it:
 
