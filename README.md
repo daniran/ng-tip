@@ -28,7 +28,7 @@ The main.css file contains a basic tooltip desing (see example page)
     height: 250,  // tooltip height
     templateUrl: 'template.html',
     controller: 'myTooltipCtrl',   // with $tooltipInstance injected
-    placement: 'top|bottom|left|right,
+    placement: 'top|bottom|left|right',
     appendToBody: false, // append to body?
     isolateScope: true,  // inject isolate scope to controller, or the parent scope?
     data: {} // optional data object for the tooltip
@@ -39,8 +39,8 @@ The main.css file contains a basic tooltip desing (see example page)
 
 ```javascript
 $tooltipInstance : {
-    config: {}  // the tooltip config object
-    close()  //  method to close the tooltip
+    config: {},  // the tooltip config object
+    close: function() {}  //  method to close the tooltip
 }
 ```
           
