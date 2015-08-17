@@ -10,6 +10,7 @@ The main.css file contains a basic tooltip desing (see example page)
 ### To build:
 
 `npm install`
+
 `grunt build`
 
 ## Usage:
