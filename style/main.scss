@@ -1,0 +1,105 @@
+@import "../bower_components/UtilityBelt/utility-belt";
+
+$triangleSize: 10px;
+$borderWidth: 1px;
+$triangleShadowSize: $triangleSize + $borderWidth;
+$triangleMiddle: $triangleSize / 2;
+
+$grayMediumLight: #cccccc;
+$grayTextLight: #838383;
+
+$white: white;
+
+.ng-tooltip-element {
+    position: absolute;
+    z-index: 1070;
+    display: block;
+    // BOTTOM
+    &.bottom {
+        margin-top: $triangleSize;
+        &:before {
+            // for triangle pointer shadow
+            @include triangle($direction: up, $size: $triangleShadowSize, $color: $grayMediumLight);
+            top: -$triangleSize;
+            left: 50%;
+            margin-left: -$triangleMiddle;
+        }
+        &:after {
+            // for triangle pointer
+            @include triangle($direction: up, $size: $triangleSize, $color: $white);
+            top: -$triangleSize + $borderWidth;
+            left: 50%;
+            margin-left: -$triangleMiddle + $borderWidth;
+        }
+    }
+
+    // TOP
+    &.top {
+        margin-top: -$triangleSize;
+        &:before {
+            // for triangle pointer shadow
+            @include triangle($direction: down, $size: $triangleShadowSize, $color: $grayMediumLight);
+            bottom: -$triangleSize;
+            left: 50%;
+            margin-left: -$triangleMiddle;
+        }
+        &:after {
+            // for triangle pointer
+            @include triangle($direction: down, $size: $triangleSize, $color: $white);
+            bottom: -$triangleSize + $borderWidth;
+            left: 50%;
+            margin-left: -$triangleMiddle + $borderWidth;
+        }
+    }
+
+    // RIGHT
+    &.right {
+        margin-left: $triangleSize;
+        &:before {
+            // for triangle pointer shadow
+            @include triangle($direction: left, $size: $triangleShadowSize, $color: $grayMediumLight);
+            top: 50%;
+            left: -$triangleSize;
+            margin-top: -$triangleSize;
+        }
+        &:after {
+            // for triangle pointer
+            @include triangle($direction: left, $size: $triangleSize, $color: $white);
+            top: 50%;
+            left: -$triangleSize + $borderWidth;
+            margin-top: -$triangleSize + $borderWidth;
+        }
+    }
+
+    // LEFT
+    &.left {
+        margin-left: -$triangleSize;
+        &:before {
+            // for triangle pointer shadow
+            @include triangle($direction: right, $size: $triangleShadowSize, $color: $grayMediumLight);
+            top: 50%;
+            right: -$triangleSize;
+            margin-top: -$triangleSize;
+        }
+        &:after {
+            // for triangle pointer
+            @include triangle($direction: right, $size: $triangleSize, $color: $white);
+            top: 50%;
+            right: -$triangleSize + $borderWidth;
+            margin-top: -$triangleSize + $borderWidth;
+        }
+    }
+
+}
+
+.ng-tooltip-content {
+    overflow: auto;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: white !important;
+    color: $grayTextLight !important;
+    border-radius: 10px;
+    border: 1px solid $grayMediumLight;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+    padding: 12px 16px;
+}

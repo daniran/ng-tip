@@ -1,8 +1,4 @@
-/**
- * A set of utility methods that can be use to retrieve position of DOM elements.
- * It is meant to be used where we need to absolute-position DOM elements in
- * relation to other, existing elements
- */
+
 angular.module('ng.tooltip').factory('$position', function ($document, $window) {
   function getStyle(el, cssprop) {
     if (el.currentStyle) { //IE

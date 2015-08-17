@@ -1,13 +1,6 @@
 module.exports = function (grunt) {
 
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-ng-annotate');
-  grunt.loadNpmTasks('grunt-html2js');
-  grunt.loadNpmTasks('grunt-karma');
+  require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -23,8 +16,7 @@ module.exports = function (grunt) {
         ' * <%= pkg.author %>\n',
         ' * Version: <%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>',
         ' * License: <%= pkg.license %>',
-        ' */\n',
-        'angular.module("ng.tooltip", ["ng.tooltip.tmpl"]);'].join('\n')
+        ' */\n'].join('\n')
     },
     clean: {
       build: {
@@ -34,10 +26,10 @@ module.exports = function (grunt) {
     concat: {
       dist: {
         options: {
-         // banner: '<%= meta.banner %>\n'
+          banner: '<%= meta.banner %>\n'
         },
-        src: ['<%= src %>/position.js', '<%= src %>/ngTooltip.js'],
-        dest: '<%= dist %>/<%= filename %>-<%= pkg.version %>.js'
+        src: ['<%= src %>/app.js', '<%= src %>/position.js', '<%= src %>/ngTooltip.js'],
+        dest: '<%= dist %>/<%= filename %>.js'
       }
     },
     ngAnnotate: {
@@ -55,7 +47,19 @@ module.exports = function (grunt) {
       },
       main: {
         src: ['<%= templates %>/**/*.html'],
-        dest: '<%= dist %>/<%= filename %>-<%= pkg.version %>.templates.js'
+        dest: '<%= dist %>/<%= filename %>.templates.js'
+      }
+    },
+    sass: {
+      options: {
+        sourceMap: true,
+        outputStyle: 'compressed',
+        sourceComments: false
+      },
+      dist: {
+        files: {
+          '<%= dist %>/main.css': 'style/main.scss'
+        }
       }
     },
     uglify: {
@@ -64,7 +68,7 @@ module.exports = function (grunt) {
       },
       dist: {
         src: ['<%= concat.dist.dest %>', '<%= html2js.main.dest %>'],
-        dest: '<%= dist %>/<%= filename %>-<%= pkg.version %>.min.js'
+        dest: '<%= dist %>/<%= filename %>.min.js'
       }
     },
     jshint: {
@@ -106,7 +110,7 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.registerTask('build', ['clean', 'concat', 'ngAnnotate', 'html2js', 'uglify']);
+  grunt.registerTask('build', ['clean', 'sass', 'concat', 'ngAnnotate', 'html2js', 'uglify']);
   grunt.registerTask('default', ['build']);
 
 };

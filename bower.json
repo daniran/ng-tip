@@ -7,13 +7,14 @@
   "description": "a simple replacement for AngularUI tooltip",
   "license": "MIT",
   "main": [
-    "dist/ng-tooltip-0.1.0.min.js"
-  ],
-  "authors": [
-    "Danny Rankevich <danny.ran@gmail.com>"
+    "dist/ng-tooltip.js",
+    "dist/ng-tooltip.templates.js",
+    "dist/ng-tooltip.min.js",
+    "dist/main.css"
   ],
   "dependencies": {
-    "angular": "^1.4.3"
+    "angular": "^1.4.3",
+    "UtilityBelt": "~1.2.0"
   },
   "ignore": [
     "**/.*",
