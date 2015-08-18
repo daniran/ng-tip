@@ -2,7 +2,7 @@
  * Created by dannyr on 8/18/2015.
  */
 
-var app = angular.module('ng-tip-site', []);
+var app = angular.module('ng-tip-site', ['ng.tooltip']);
 
 
 app.controller('ngTooltipCtrl', function ($scope) {
@@ -15,7 +15,7 @@ app.controller('ngTooltipCtrl', function ($scope) {
     for (var i = 0; i < dirs.length; i++) {
         var popupData = {
             opened: false,
-            onHover: i%2==0,
+            onHover: i % 2 == 0,
             config: {
                 width: 300,
                 height: 150,
