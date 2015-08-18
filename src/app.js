@@ -3,4 +3,4 @@
  */
 
 // module definition
-angular.module('ng.tooltip', []);
+angular.module('ng.tooltip', ['ng.tooltip.tmpl']);
