@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link data-require="bootstrap@3.3.5" data-semver="3.3.5" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/main.css" media="screen">
     <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
     <script data-require="angular.js@1.4.x" src="https://code.angularjs.org/1.4.3/angular.js" data-semver="1.4.3"></script>
     <script src="js/ng-tooltip.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
 <section class="page-header">
@@ -23,7 +25,7 @@
     <a href="https://github.com/daniran/ng-tip/tarball/master" class="btn">Download .tar.gz</a>
 </section>
 
-<section class="main-content">
+<section class="main-content" ng-app="ng-tip-site">
     <h1>
         <a id="ng--tip" class="anchor" href="#ng--tip" aria-hidden="true"><span class="octicon octicon-link"></span></a>ng- tip</h1>
 
@@ -34,7 +36,23 @@
 
     <p><code>bower install --save ng-tip</code></p>
 
-    <p>The main.css file contains a basic tooltip desing (see example page)</p>
+    <p>The main.css file contains a basic tooltip design (see examples)</p>
+
+    <div class="container-fluid" ng-controller="ngTooltipCtrl">
+        <div ng-repeat="tooltip in tooltips" class="bs-callout container" ng-class="tooltip.opened ? 'bs-callout-warning': 'bs-callout-info'">
+            <p ng-class="tooltip.opened ? 'text-warning': 'text-primary'">tooltip is {{ tooltip.opened ? 'opened' : 'closed' }}</p>
+
+            <p><label for="on-hover-{{ $index }}"><input type="checkbox" id="on-hover-{{ $index }}" name="on-hover-{{ $index }}" ng-model="tooltip.onHover"/>On Hover?</label></p>
+            <button type="button"
+                    ng-tooltip="tooltip.opened"
+                    ng-tooltip-config="tooltip.config"
+                    ng-mouseenter="tooltip.onHover ? setPopupOpened($index, true) : null"
+                    ng-mouseleave="tooltip.onHover ? setPopupOpened($index, false): null"
+                    ng-click="setPopupOpened($index)" class="btn btn-primary col-md-6">click to open on '{{ tooltip.config.placement }}'
+            </button>
+            <P>click outside tooltip to close</P>
+        </div>
+    </div>
 
     <h3>
         <a id="to-build" class="anchor" href="#to-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>To build:</h3>
