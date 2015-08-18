@@ -26,7 +26,10 @@ angular.module('ng.tooltip').directive('ngTooltip', function ($position, $contro
       function openPopup() {
         // scope
         var ttScope = isolateScope ? scope.$new(true) : scope.$parent;
-
+        ttScope.$$ttConfig = config;
+        ttScope.$$ttClose = function () {
+          closePopup();
+        };
         // controller
         var ctrlLocals = {
           $scope: ttScope,
@@ -56,7 +59,7 @@ angular.module('ng.tooltip').directive('ngTooltip', function ($position, $contro
           height: config.height,
           width: config.width
         });
-        var ttPosition = $position.positionElements(element, popupElem, config.placement || 'bottom', 20, appendToBody);
+        var ttPosition = $position.positionElements(element, popupElem, config.placement || 'bottom', appendToBody);
         popupElem.css(ttPosition);
 
       }

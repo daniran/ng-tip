@@ -91,7 +91,7 @@ angular.module('ng.tooltip').factory('$position', ["$document", "$window", funct
     /**
      * Provides coordinates for the targetEl in relation to hostEl
      */
-    positionElements: function (hostEl, targetEl, positionStr, margin, appendToBody) {
+    positionElements: function (hostEl, targetEl, positionStr, appendToBody) {
       var positionStrParts = positionStr.split('-');
       var pos0 = positionStrParts[0], pos1 = positionStrParts[1] || 'center';
 
@@ -133,24 +133,24 @@ angular.module('ng.tooltip').factory('$position', ["$document", "$window", funct
         case 'right':
           targetElPos = {
             top: shiftHeight[pos1](),
-            left: shiftWidth[pos0]() + margin
+            left: shiftWidth[pos0]()
           };
           break;
         case 'left':
           targetElPos = {
             top: shiftHeight[pos1](),
-            left: hostElPos.left - targetElWidth - margin
+            left: hostElPos.left - targetElWidth
           };
           break;
         case 'bottom':
           targetElPos = {
-            top: shiftHeight[pos0]() + margin,
+            top: shiftHeight[pos0](),
             left: shiftWidth[pos1]()
           };
           break;
         default:
           targetElPos = {
-            top: hostElPos.top - targetElHeight - margin,
+            top: hostElPos.top - targetElHeight,
             left: shiftWidth[pos1]()
           };
           break;
@@ -189,7 +189,10 @@ angular.module('ng.tooltip').directive('ngTooltip', ["$position", "$controller",
       function openPopup() {
         // scope
         var ttScope = isolateScope ? scope.$new(true) : scope.$parent;
-
+        ttScope.$$ttConfig = config;
+        ttScope.$$ttClose = function () {
+          closePopup();
+        };
         // controller
         var ctrlLocals = {
           $scope: ttScope,
@@ -219,7 +222,7 @@ angular.module('ng.tooltip').directive('ngTooltip', ["$position", "$controller",
           height: config.height,
           width: config.width
         });
-        var ttPosition = $position.positionElements(element, popupElem, config.placement || 'bottom', 20, appendToBody);
+        var ttPosition = $position.positionElements(element, popupElem, config.placement || 'bottom', appendToBody);
         popupElem.css(ttPosition);
 
       }
