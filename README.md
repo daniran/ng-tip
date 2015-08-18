@@ -1,6 +1,8 @@
 # ng- tip
 An simple yet functional Angular tooltip directive
 
+See [DEMO PAGE](http://daniran.github.io/ng-tip/) here
+
 ### To install it:
 
 `bower install --save ng-tip`
