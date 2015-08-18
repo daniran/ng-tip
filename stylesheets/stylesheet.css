@@ -358,6 +358,8 @@ pre {
     border-radius: 3px;
     width: 300px;
     display: inline-block;
+    color: white;
+    background: #159957 linear-gradient(120deg, #155799, #159957);
 }
 
 .bs-callout-info {
