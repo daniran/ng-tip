@@ -12,7 +12,7 @@
  */
 
 // module definition
-angular.module('ng.tooltip', []);
+angular.module('ng.tooltip', ['ng.tooltip.tmpl']);
 
 
 angular.module('ng.tooltip').factory('$position', ["$document", "$window", function ($document, $window) {
