@@ -359,7 +359,7 @@ pre {
     width: 300px;
     display: inline-block;
     color: white;
-    background: #159957 linear-gradient(120deg, #155799, #159957);
+    background-color: #1b809e;
 }
 
 .bs-callout-info {
