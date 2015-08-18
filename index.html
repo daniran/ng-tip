@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>ng-tip by daniran</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,74 +8,81 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">ng-tip</h1>
-      <h2 class="project-tagline">An easy and fast Angular tooltip directive</h2>
-      <a href="https://github.com/daniran/ng-tip" class="btn">View on GitHub</a>
-      <a href="https://github.com/daniran/ng-tip/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/daniran/ng-tip/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+</head>
+<body>
+<section class="page-header">
+    <h1 class="project-name">ng-tip</h1>
 
-    <section class="main-content">
-      <h1>
-<a id="ng--tip" class="anchor" href="#ng--tip" aria-hidden="true"><span class="octicon octicon-link"></span></a>ng- tip</h1>
+    <h2 class="project-tagline">An easy and fast Angular tooltip directive</h2>
+    <a href="https://github.com/daniran/ng-tip" class="btn">View on GitHub</a>
+    <a href="https://github.com/daniran/ng-tip/zipball/master" class="btn">Download .zip</a>
+    <a href="https://github.com/daniran/ng-tip/tarball/master" class="btn">Download .tar.gz</a>
+</section>
 
-<p>An easy and fast Angular tooltip directive</p>
+<section class="main-content">
+    <h1>
+        <a id="ng--tip" class="anchor" href="#ng--tip" aria-hidden="true"><span class="octicon octicon-link"></span></a>ng- tip</h1>
 
-<h3>
-<a id="to-install-it" class="anchor" href="#to-install-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>To install it:</h3>
+    <p>An easy and fast Angular tooltip directive</p>
 
-<p>`<code>
-</code>bower install --save ng-tip`</p>
+    <h3>
+        <a id="to-install-it" class="anchor" href="#to-install-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>To install it:</h3>
 
-<p>The main.css file contains a basic tooltip desing (see example page)</p>
+    <p><code>bower install --save ng-tip</code></p>
 
-<h3>
-<a id="to-build" class="anchor" href="#to-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>To build:</h3>
+    <p>The main.css file contains a basic tooltip desing (see example page)</p>
 
-<p><code>npm install</code>
-<code>grunt build</code></p>
+    <h3>
+        <a id="to-build" class="anchor" href="#to-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>To build:</h3>
 
-<h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage:</h2>
+    <p><code>npm install</code>
+        <code>grunt build</code></p>
 
-<h3>
-<a id="directive" class="anchor" href="#directive" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directive</h3>
+    <h2>
+        <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage:</h2>
 
-<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">button</span> <span class="pl-e">ng-tooltip</span>=<span class="pl-s"><span class="pl-pds">"</span>isTooltipOpened<span class="pl-pds">"</span></span> <span class="pl-e">ng-tooltip-config</span>=<span class="pl-s"><span class="pl-pds">"</span>configObj<span class="pl-pds">"</span></span>&gt;</pre></div>
+    <h3>
+        <a id="directive" class="anchor" href="#directive" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directive</h3>
 
-<h3>
-<a id="config-object" class="anchor" href="#config-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Config Object</h3>
+    <div class="highlight highlight-html">
+        <pre>&lt;<span class="pl-ent">button</span> <span class="pl-e">ng-tooltip</span>=<span class="pl-s"><span class="pl-pds">"</span>isTooltipOpened<span class="pl-pds">"</span></span> <span
+                class="pl-e">ng-tooltip-config</span>=<span class="pl-s"><span class="pl-pds">"</span>configObj<span class="pl-pds">"</span></span>&gt;</pre>
+    </div>
 
-<div class="highlight highlight-javascript"><pre>{
+    <h3>
+        <a id="config-object" class="anchor" href="#config-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Config Object</h3>
+
+    <div class="highlight highlight-javascript"><pre>{
     width<span class="pl-k">:</span> <span class="pl-c1">150</span>,  <span class="pl-c">// tooltip width</span>
     height<span class="pl-k">:</span> <span class="pl-c1">250</span>,  <span class="pl-c">// tooltip height</span>
     templateUrl<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>template.html<span class="pl-pds">'</span></span>,
-    controller<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>myTooltipCtrl<span class="pl-pds">'</span></span>,   <span class="pl-c">// with $tooltipInstance injected</span>
+    controller<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>myTooltipCtrl<span class="pl-pds">'</span></span>,   <span
+                class="pl-c">// with $tooltipInstance injected</span>
     placement<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>top|bottom|left|right,</span>
 <span class="pl-s">    appendToBody: false, // append to body?</span>
 <span class="pl-s">    isolateScope: true,  // inject isolate scope to controller, or the parent scope?</span>
 <span class="pl-s">    data: {} // optional data object for the tooltip</span>
-<span class="pl-s">}</span></pre></div>
+<span class="pl-s">}</span></pre>
+    </div>
 
-<h3>
-<a id="tooltipinstance" class="anchor" href="#tooltipinstance" aria-hidden="true"><span class="octicon octicon-link"></span></a>$tooltipInstance</h3>
+    <h3>
+        <a id="tooltipinstance" class="anchor" href="#tooltipinstance" aria-hidden="true"><span class="octicon octicon-link"></span></a>$tooltipInstance</h3>
 
-<div class="highlight highlight-javascript"><pre>$tooltipInstance <span class="pl-k">:</span> {
+    <div class="highlight highlight-javascript"><pre>$tooltipInstance <span class="pl-k">:</span> {
     config<span class="pl-k">:</span> {}  <span class="pl-c">// the tooltip config object</span>
     <span class="pl-c1">close</span>()  <span class="pl-c">//  method to close the tooltip</span>
-}</pre></div>
+}</pre>
+    </div>
 
-      <footer class="site-footer">
+    <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/daniran/ng-tip">ng-tip</a> is maintained by <a href="https://github.com/daniran">daniran</a>.</span>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a
+                href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+    </footer>
 
-    </section>
+</section>
 
-  
-  </body>
+
+</body>
 </html>
